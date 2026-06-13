@@ -1,0 +1,58 @@
+﻿<Window x:Class="K3.PartnerEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавление партнера" 
+        Height="500" Width="600"
+        WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,20">
+            <Image Source="/Images/ico.jpg" Height="40" Margin="0,0,10,0"/>
+            <TextBlock x:Name="txtTitle" Text="Добавление партнера" 
+                       FontSize="22" FontWeight="Bold" 
+                       FontFamily="Segoe UI" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Поля ввода -->
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="Наименование:" FontWeight="Bold" FontFamily="Segoe UI" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtName" Padding="5" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Тип партнера:" FontWeight="Bold" FontFamily="Segoe UI" Margin="0,0,0,5"/>
+            <ComboBox x:Name="cmbType" Padding="5" Margin="0,0,0,10">
+                <ComboBoxItem Content="ООО"/>
+                <ComboBoxItem Content="ОАО"/>
+                <ComboBoxItem Content="ПАО"/>
+            </ComboBox>
+
+            <TextBlock Text="Рейтинг:" FontWeight="Bold" FontFamily="Segoe UI" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtRating" Padding="5" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Адрес:" FontWeight="Bold" FontFamily="Segoe UI" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtAddress" Padding="5" Margin="0,0,0,10"/>
+
+            <TextBlock Text="ФИО директора:" FontWeight="Bold" FontFamily="Segoe UI" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtDirector" Padding="5" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Телефон:" FontWeight="Bold" FontFamily="Segoe UI" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtPhone" Padding="5" Margin="0,0,0,10"/>
+
+            <TextBlock Text="Email:" FontWeight="Bold" FontFamily="Segoe UI" Margin="0,0,0,5"/>
+            <TextBox x:Name="txtEmail" Padding="5" Margin="0,0,0,10"/>
+        </StackPanel>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" 
+                    HorizontalAlignment="Right" Margin="0,15,0,0">
+            <Button Content="Назад" Width="100" Margin="0,0,10,0" Click="BtnBack_Click"/>
+            <Button Content="Сохранить" Width="120" Click="BtnSave_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

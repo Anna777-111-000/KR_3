@@ -99,14 +99,35 @@ namespace K3
             }
         }
 
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        // Клик по карточке продукции → редактирование
+        private void Card_Click(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            MessageBox.Show("Добавление продукции");
+            var border = sender as System.Windows.Controls.Border;
+            var product = border?.DataContext as ProductCard;
+            if (product == null) return;
+
+            ProductEditWindow editWindow = new ProductEditWindow(product.ProductID);
+            if (editWindow.ShowDialog() == true)
+            {
+                LoadProducts(); // Обновляем список
+            }
         }
 
+        // Кнопка "Добавить"
+        private void AddButton_Click(object sender, RoutedEventArgs e)
+        {
+            ProductEditWindow addWindow = new ProductEditWindow();
+            if (addWindow.ShowDialog() == true)
+            {
+                LoadProducts();
+            }
+        }
+
+        // Кнопка "Изменить"
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Редактирование продукции");
+            MessageBox.Show("Кликните по карточке товара для редактирования",
+                          "Подсказка", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 

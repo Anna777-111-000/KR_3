@@ -49,65 +49,62 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Border BorderBrush="#156082"
-                                BorderThickness="1"
-                                Margin="0,0,0,15"
-                                CornerRadius="4">
+            BorderThickness="1"
+            Margin="0,0,0,15"
+            CornerRadius="4"
+            MouseLeftButtonDown="Card_Click"
+            Cursor="Hand">
                             <Grid>
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
 
-                                <!-- Синий заголовок с названием товара -->
                                 <Border Grid.Row="0" 
-                                        Background="#156082"
-                                        CornerRadius="4,4,0,0"
-                                        Padding="15,10">
+                    Background="#156082"
+                    CornerRadius="4,4,0,0"
+                    Padding="15,10">
                                     <TextBlock Text="{Binding Name}" 
-                                               FontSize="18" 
-                                               FontWeight="Bold" 
-                                               Foreground="White"
-                                               FontFamily="Segoe UI"/>
+                           FontSize="18" 
+                           FontWeight="Bold" 
+                           Foreground="White"
+                           FontFamily="Segoe UI"/>
                                 </Border>
 
-                                <!-- Белый блок с информацией -->
                                 <Border Grid.Row="1" Background="#FFFFFF" Padding="15,12">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="*"/>
                                             <ColumnDefinition Width="120"/>
-                                            <ColumnDefinition Width="120"/>
                                         </Grid.ColumnDefinitions>
 
-                                        <!-- Левая часть: тип, цены -->
                                         <StackPanel Grid.Column="0" VerticalAlignment="Center">
                                             <TextBlock FontSize="14" FontFamily="Segoe UI" Margin="0,0,0,8" Foreground="Black">
-                                                <Run Text="• " FontWeight="Bold"/>
-                                                <Run Text="Тип товара: " FontWeight="Bold"/>
-                                                <Run Text="{Binding ProductType}"/>
+                            <Run Text="• " FontWeight="Bold"/>
+                            <Run Text="Тип товара: " FontWeight="Bold"/>
+                            <Run Text="{Binding ProductType}"/>
                                             </TextBlock>
                                             <TextBlock FontSize="14" FontFamily="Segoe UI" Margin="0,0,0,8" Foreground="Black">
-                                                <Run Text="• " FontWeight="Bold"/>
-                                                <Run Text="Цена без скидки: " FontWeight="Bold"/>
-                                                <Run Text="{Binding Price, StringFormat={}{0:F2} ₽}"/>
+                            <Run Text="• " FontWeight="Bold"/>
+                            <Run Text="Цена без скидки: " FontWeight="Bold"/>
+                            <Run Text="{Binding Price, StringFormat={}{0:F2} ₽}"/>
                                             </TextBlock>
                                             <TextBlock FontSize="14" FontFamily="Segoe UI" Foreground="Black">
-                                                <Run Text="• " FontWeight="Bold"/>
-                                                <Run Text="Цена со скидкой: " FontWeight="Bold"/>
-                                                <Run Text="{Binding PriceWithDiscount, StringFormat={}{0:F2} ₽}"/>
+                            <Run Text="• " FontWeight="Bold"/>
+                            <Run Text="Цена со скидкой: " FontWeight="Bold"/>
+                            <Run Text="{Binding PriceWithDiscount, StringFormat={}{0:F2} ₽}"/>
                                             </TextBlock>
                                         </StackPanel>
 
-                                        <!-- Правая часть: размер скидки (ЧЕРНЫМ) -->
-                                        <TextBlock Grid.Column="2" 
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Right"
-                                                   FontSize="32" 
-                                                   FontWeight="Bold"
-                                                   Foreground="Black"
-                                                   FontFamily="Segoe UI">
-                                            <Run Text="{Binding DiscountPercent}"/>
-                                            <Run Text="%" FontSize="20"/>
+                                        <TextBlock Grid.Column="1" 
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               FontSize="32" 
+                               FontWeight="Bold"
+                               Foreground="Black"
+                               FontFamily="Segoe UI">
+                        <Run Text="{Binding DiscountPercent}"/>
+                        <Run Text="%" FontSize="20"/>
                                         </TextBlock>
                                     </Grid>
                                 </Border>

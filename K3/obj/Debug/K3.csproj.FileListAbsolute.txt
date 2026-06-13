@@ -20,3 +20,7 @@ C:\Users\an\source\repos\K3\K3\obj\Debug\K3.csproj.CoreCompileInputs.cache
 C:\Users\an\source\repos\K3\K3\obj\Debug\K3.csproj.CopyComplete
 C:\Users\an\source\repos\K3\K3\obj\Debug\K3.exe
 C:\Users\an\source\repos\K3\K3\obj\Debug\K3.pdb
+C:\Users\an\source\repos\K3\K3\obj\Debug\PartnerEditWindow.baml
+C:\Users\an\source\repos\K3\K3\obj\Debug\ProductEditWindow.baml
+C:\Users\an\source\repos\K3\K3\obj\Debug\PartnerEditWindow.g.cs
+C:\Users\an\source\repos\K3\K3\obj\Debug\ProductEditWindow.g.cs
