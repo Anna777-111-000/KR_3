@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2d790b9f81f24126ba36a0b87483cd07" Name="Diagram1" ZoomLevel="70">
+        <EntityTypeShape EntityType="Model.AccessTypes" Width="1.5" PointX="6" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Applications" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Employees" Width="1.5" PointX="8.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EquipmentTypes" Width="1.5" PointX="10.5" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Managers" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Partners" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PartnerTypes" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Posts" Width="1.5" PointX="6" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Products" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProductTypes" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK_Applications_Partners" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Employees_Posts" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Employees_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Partners_Managers" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Products_Managers" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Partners_PartnerTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_Products_ProductTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EmployeeAccess" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EmployeeEquipment" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

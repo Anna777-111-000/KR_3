@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AccessTypes">
+    <Key>
+      <PropertyRef Name="AccessTypeID" />
+    </Key>
+    <Property Name="AccessTypeID" Type="Int32" Nullable="false" />
+    <Property Name="AccessTypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employees" Relationship="Self.EmployeeAccess" FromRole="AccessTypes" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Applications">
+    <Key>
+      <PropertyRef Name="ApplicationID" />
+    </Key>
+    <Property Name="ApplicationID" Type="Int32" Nullable="false" />
+    <Property Name="PartnerID" Type="Int32" />
+    <Property Name="Date" Type="Double" />
+    <Property Name="Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="OrderTotal" Type="Double" />
+    <Property Name="Prepayment" Type="Double" />
+    <Property Name="DeliveryDate" Type="Double" />
+    <NavigationProperty Name="Partners" Relationship="Self.FK_Applications_Partners" FromRole="Applications" ToRole="Partners" />
+  </EntityType>
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="EmployeesID" />
+    </Key>
+    <Property Name="EmployeesID" Type="Int32" Nullable="false" />
+    <Property Name="EmployeesName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="PostID" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProductsID" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Posts" Relationship="Self.FK_Employees_Posts" FromRole="Employees" ToRole="Posts" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Employees_Products" FromRole="Employees" ToRole="Products" />
+    <NavigationProperty Name="AccessTypes" Relationship="Self.EmployeeAccess" FromRole="Employees" ToRole="AccessTypes" />
+    <NavigationProperty Name="EquipmentTypes" Relationship="Self.EmployeeEquipment" FromRole="Employees" ToRole="EquipmentTypes" />
+  </EntityType>
+  <EntityType Name="EquipmentTypes">
+    <Key>
+      <PropertyRef Name="EquipmentTypeID" />
+    </Key>
+    <Property Name="EquipmentTypeID" Type="Int32" Nullable="false" />
+    <Property Name="EquipmentTypeName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employees" Relationship="Self.EmployeeEquipment" FromRole="EquipmentTypes" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Managers">
+    <Key>
+      <PropertyRef Name="ManagerID" />
+    </Key>
+    <Property Name="ManagerID" Type="Int32" Nullable="false" />
+    <Property Name="ManagerName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfPartners" Type="Double" />
+    <Property Name="ValumOfSalse" Type="Double" />
+    <NavigationProperty Name="Partners" Relationship="Self.FK_Partners_Managers" FromRole="Managers" ToRole="Partners" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Managers" FromRole="Managers" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Partners">
+    <Key>
+      <PropertyRef Name="PartnerID" />
+    </Key>
+    <Property Name="PartnerID" Type="Int32" Nullable="false" />
+    <Property Name="PartnerGroupName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Raiting" Type="Double" />
+    <Property Name="PartnerTypeID" Type="Int32" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="DirectorName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ManagerID" Type="Int32" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Applications" Relationship="Self.FK_Applications_Partners" FromRole="Partners" ToRole="Applications" />
+    <NavigationProperty Name="Managers" Relationship="Self.FK_Partners_Managers" FromRole="Partners" ToRole="Managers" />
+    <NavigationProperty Name="PartnerTypes" Relationship="Self.FK_Partners_PartnerTypes" FromRole="Partners" ToRole="PartnerTypes" />
+  </EntityType>
+  <EntityType Name="PartnerTypes">
+    <Key>
+      <PropertyRef Name="PartnerTypeID" />
+    </Key>
+    <Property Name="PartnerTypeID" Type="Int32" Nullable="false" />
+    <Property Name="PartnerType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Partners" Relationship="Self.FK_Partners_PartnerTypes" FromRole="PartnerTypes" ToRole="Partners" />
+  </EntityType>
+  <EntityType Name="Posts">
+    <Key>
+      <PropertyRef Name="PustID" />
+    </Key>
+    <Property Name="PustID" Type="Int32" Nullable="false" />
+    <Property Name="Post" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Posts" FromRole="Posts" ToRole="Employees" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="ProductsID" />
+    </Key>
+    <Property Name="ProductsID" Type="Int32" Nullable="false" />
+    <Property Name="Artikle" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ProductTypeID" Type="Int32" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Double" />
+    <Property Name="Count" Type="Double" />
+    <Property Name="ManufacturerID" Type="Int32" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Products" FromRole="Products" ToRole="Employees" />
+    <NavigationProperty Name="Managers" Relationship="Self.FK_Products_Managers" FromRole="Products" ToRole="Managers" />
+    <NavigationProperty Name="ProductTypes" Relationship="Self.FK_Products_ProductTypes" FromRole="Products" ToRole="ProductTypes" />
+  </EntityType>
+  <EntityType Name="ProductTypes">
+    <Key>
+      <PropertyRef Name="ProductTypeID" />
+    </Key>
+    <Property Name="ProductTypeID" Type="Int32" Nullable="false" />
+    <Property Name="ProductType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_ProductTypes" FromRole="ProductTypes" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Applications_Partners">
+    <End Role="Partners" Type="Self.Partners" Multiplicity="0..1" />
+    <End Role="Applications" Type="Self.Applications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Partners">
+        <PropertyRef Name="PartnerID" />
+      </Principal>
+      <Dependent Role="Applications">
+        <PropertyRef Name="PartnerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Posts">
+    <End Role="Posts" Type="Self.Posts" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posts">
+        <PropertyRef Name="PustID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="PostID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employees_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="ProductsID" />
+      </Principal>
+      <Dependent Role="Employees">
+        <PropertyRef Name="ProductsID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partners_Managers">
+    <End Role="Managers" Type="Self.Managers" Multiplicity="0..1" />
+    <End Role="Partners" Type="Self.Partners" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Managers">
+        <PropertyRef Name="ManagerID" />
+      </Principal>
+      <Dependent Role="Partners">
+        <PropertyRef Name="ManagerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Managers">
+    <End Role="Managers" Type="Self.Managers" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Managers">
+        <PropertyRef Name="ManagerID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="ManufacturerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Partners_PartnerTypes">
+    <End Role="PartnerTypes" Type="Self.PartnerTypes" Multiplicity="0..1" />
+    <End Role="Partners" Type="Self.Partners" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PartnerTypes">
+        <PropertyRef Name="PartnerTypeID" />
+      </Principal>
+      <Dependent Role="Partners">
+        <PropertyRef Name="PartnerTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_ProductTypes">
+    <End Role="ProductTypes" Type="Self.ProductTypes" Multiplicity="0..1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductTypes">
+        <PropertyRef Name="ProductTypeID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="ProductTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="EmployeeAccess">
+    <End Role="AccessTypes" Type="Self.AccessTypes" Multiplicity="*" />
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+  </Association>
+  <Association Name="EmployeeEquipment">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+    <End Role="EquipmentTypes" Type="Self.EquipmentTypes" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AccessTypes" EntityType="Self.AccessTypes" />
+    <EntitySet Name="Applications" EntityType="Self.Applications" />
+    <EntitySet Name="Employees" EntityType="Self.Employees" />
+    <EntitySet Name="EquipmentTypes" EntityType="Self.EquipmentTypes" />
+    <EntitySet Name="Managers" EntityType="Self.Managers" />
+    <EntitySet Name="Partners" EntityType="Self.Partners" />
+    <EntitySet Name="PartnerTypes" EntityType="Self.PartnerTypes" />
+    <EntitySet Name="Posts" EntityType="Self.Posts" />
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="ProductTypes" EntityType="Self.ProductTypes" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Applications_Partners" Association="Self.FK_Applications_Partners">
+      <End Role="Partners" EntitySet="Partners" />
+      <End Role="Applications" EntitySet="Applications" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Posts" Association="Self.FK_Employees_Posts">
+      <End Role="Posts" EntitySet="Posts" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employees_Products" Association="Self.FK_Employees_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partners_Managers" Association="Self.FK_Partners_Managers">
+      <End Role="Managers" EntitySet="Managers" />
+      <End Role="Partners" EntitySet="Partners" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Managers" Association="Self.FK_Products_Managers">
+      <End Role="Managers" EntitySet="Managers" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Partners_PartnerTypes" Association="Self.FK_Partners_PartnerTypes">
+      <End Role="PartnerTypes" EntitySet="PartnerTypes" />
+      <End Role="Partners" EntitySet="Partners" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_ProductTypes" Association="Self.FK_Products_ProductTypes">
+      <End Role="ProductTypes" EntitySet="ProductTypes" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeAccess" Association="Self.EmployeeAccess">
+      <End Role="AccessTypes" EntitySet="AccessTypes" />
+      <End Role="Employees" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="EmployeeEquipment" Association="Self.EmployeeEquipment">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="EquipmentTypes" EntitySet="EquipmentTypes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="AccessTypes">
+      <EntityTypeMapping TypeName="Model.AccessTypes">
+        <MappingFragment StoreEntitySet="AccessTypes">
+          <ScalarProperty Name="AccessTypeID" ColumnName="AccessTypeID" />
+          <ScalarProperty Name="AccessTypeName" ColumnName="AccessTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Applications">
+      <EntityTypeMapping TypeName="Model.Applications">
+        <MappingFragment StoreEntitySet="Applications">
+          <ScalarProperty Name="ApplicationID" ColumnName="ApplicationID" />
+          <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="OrderTotal" ColumnName="OrderTotal" />
+          <ScalarProperty Name="Prepayment" ColumnName="Prepayment" />
+          <ScalarProperty Name="DeliveryDate" ColumnName="DeliveryDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="Model.Employees">
+        <MappingFragment StoreEntitySet="Employees">
+          <ScalarProperty Name="EmployeesID" ColumnName="EmployeesID" />
+          <ScalarProperty Name="EmployeesName" ColumnName="EmployeesName" />
+          <ScalarProperty Name="PostID" ColumnName="PostID" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ProductsID" ColumnName="ProductsID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EquipmentTypes">
+      <EntityTypeMapping TypeName="Model.EquipmentTypes">
+        <MappingFragment StoreEntitySet="EquipmentTypes">
+          <ScalarProperty Name="EquipmentTypeID" ColumnName="EquipmentTypeID" />
+          <ScalarProperty Name="EquipmentTypeName" ColumnName="EquipmentTypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Managers">
+      <EntityTypeMapping TypeName="Model.Managers">
+        <MappingFragment StoreEntitySet="Managers">
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="ManagerName" ColumnName="ManagerName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="NumberOfPartners" ColumnName="NumberOfPartners" />
+          <ScalarProperty Name="ValumOfSalse" ColumnName="ValumOfSalse" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Partners">
+      <EntityTypeMapping TypeName="Model.Partners">
+        <MappingFragment StoreEntitySet="Partners">
+          <ScalarProperty Name="PartnerID" ColumnName="PartnerID" />
+          <ScalarProperty Name="PartnerGroupName" ColumnName="PartnerGroupName" />
+          <ScalarProperty Name="Raiting" ColumnName="Raiting" />
+          <ScalarProperty Name="PartnerTypeID" ColumnName="PartnerTypeID" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="DirectorName" ColumnName="DirectorName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PartnerTypes">
+      <EntityTypeMapping TypeName="Model.PartnerTypes">
+        <MappingFragment StoreEntitySet="PartnerTypes">
+          <ScalarProperty Name="PartnerTypeID" ColumnName="PartnerTypeID" />
+          <ScalarProperty Name="PartnerType" ColumnName="PartnerType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="Model.Posts">
+        <MappingFragment StoreEntitySet="Posts">
+          <ScalarProperty Name="PustID" ColumnName="PustID" />
+          <ScalarProperty Name="Post" ColumnName="Post" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="Model.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="ProductsID" ColumnName="ProductsID" />
+          <ScalarProperty Name="Artikle" ColumnName="Artikle" />
+          <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="ManufacturerID" ColumnName="ManufacturerID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductTypes">
+      <EntityTypeMapping TypeName="Model.ProductTypes">
+        <MappingFragment StoreEntitySet="ProductTypes">
+          <ScalarProperty Name="ProductTypeID" ColumnName="ProductTypeID" />
+          <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="Model.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EmployeeAccess" TypeName="Model.EmployeeAccess" StoreEntitySet="EmployeeAccess">
+      <EndProperty Name="AccessTypes">
+        <ScalarProperty Name="AccessTypeID" ColumnName="AccessTypeID" />
+      </EndProperty>
+      <EndProperty Name="Employees">
+        <ScalarProperty Name="EmployeesID" ColumnName="EmployeesID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="EmployeeEquipment" TypeName="Model.EmployeeEquipment" StoreEntitySet="EmployeeEquipment">
+      <EndProperty Name="Employees">
+        <ScalarProperty Name="EmployeesID" ColumnName="EmployeesID" />
+      </EndProperty>
+      <EndProperty Name="EquipmentTypes">
+        <ScalarProperty Name="EquipmentTypeID" ColumnName="EquipmentTypeID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,22 @@
+﻿<Application x:Class="K3.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:K3"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style TargetType="Window">
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Background" Value="#FFFFFF"/>
+        </Style>
+        <SolidColorBrush x:Key="BgSecondary" Color="#156082"/>
+        <SolidColorBrush x:Key="Accent" Color="#7cdf9a"/>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="{StaticResource Accent}"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Padding" Value="12,6"/>
+        </Style>
+    </Application.Resources>
+</Application>
